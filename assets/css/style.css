@@ -1,0 +1,236 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: rgb(200, 200, 200);
+}
+
+/* Home Page */
+nav {
+  top: 0;
+  position: sticky;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, .25);
+  background: white;
+}
+
+.nav-atas {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+}
+
+.nav-bawah {
+  display: flex;
+  justify-content: space-evenly;
+  border-bottom: 2px solid rgb(218, 218, 218);
+  padding-bottom: 7px;
+  margin-top: 7px;
+}
+
+.logo-nav {
+  height: 56px;
+}
+
+.circle-image {
+  height: 56px;
+  width: 56px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+
+.nav-icon {
+  font-size: 24px;
+  color:  rgb(184, 184, 184);
+}
+
+.active {color:  rgb(28, 88, 255);}
+
+.card {
+  width: 100%;
+  padding: 17px;
+  margin: 17px auto;
+  background: white;
+}
+
+.post-user-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+  .user-info {
+  display: flex;
+  }
+
+  .user-info .user {
+    margin-left: 7px;
+    color: black;
+  }
+
+  .user span {
+    font-size: 12px;
+  }
+
+.fa-ellipsis-h {
+  font-size: 18px;
+  z-index: 3;
+  cursor: pointer;
+}
+
+.rounded-image {
+  width: 42px;
+  height: 42px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20%;
+}
+
+/* Post Classes */
+.post-image {
+  width: 100%;
+}
+
+.post-react {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.post-react i {
+  flex: 1;
+  text-align: center;
+  font-size: 18px;
+  padding: 12px;
+  color: rgb(82, 82, 82);
+  background: rgb(204, 204, 204);
+  border-radius: 12px;
+  cursor: pointer;
+  margin: 7px 3px 0;
+}
+
+.post-comment {
+  width: 90%;
+  margin: 12px auto 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.post-comment .rounded-image {
+  width: 32px;
+  height: 32px;
+}
+.post-comment .comment {
+  width: 90%;
+}
+
+.post-send-comment {
+  display: flex;
+  margin-top: 12px;
+}
+
+.post-send-comment img { flex: 1; } 
+
+.post-send-comment i {
+  flex: 1;
+  color:  rgb(28, 88, 255);
+}
+
+.post-send-comment input {
+  flex: 10;
+  margin: 0 7px;
+  height: 27px;
+  border: none;
+  border-radius: 7px;
+  background: rgb(204, 204, 204);
+  padding: 0 7px;
+}
+
+.comment-react {
+  display: block;
+  margin-top: 7px;
+}
+
+.comment-react a { color: rgb(14, 63, 197); }
+
+.popup-menu {
+  visibility: hidden;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, .5);
+  z-index: 3;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-menu ul{
+  text-align: center;
+  list-style: none;
+  background: white;
+  padding: 12px;
+}
+
+.popup-menu ul li {
+  margin: 7px 0;
+  padding: 12px 72px;
+  border-radius: 7px;
+  background:rgb(9, 56, 184); 
+}
+ul li a {
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+}
+
+ul li.red {
+  background: rgb(182, 0, 15);
+}
+
+/* New Friend Classes */
+.friend-card {
+  display: flex;
+  margin: 17px 0;
+}
+
+.friend-info {
+  margin-left: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.friend-info a { 
+  font-size: 17px; 
+  color: black;
+  font-weight: 500;
+}
+
+.confirm-btn {display: flex;}
+.confirm-btn a.accept {
+  padding: 7px;
+  background: rgb(14, 63, 197);
+  color: white;
+  border-radius: 7px;
+  margin: 7px 12px 0 0;
+  display: block;
+}
+
+.confirm-btn a.delete {
+  padding: 3px 7px ;
+  border: 2px solid rgb(197, 14, 90);
+  color: rgb(197, 14, 90);
+  border-radius: 7px;
+  margin: 7px 12px 0 0;
+  display: block;
+}
+
+/* Optional */
+.mt-7 { margin-top: 7px; }

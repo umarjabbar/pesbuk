@@ -1,5 +1,9 @@
 <?php
+  session_start();
   include "applib.php";
+  if(isset($_SESSION['login'])){
+    header("Location: index.php");
+  }
 ?>
 
 <!DOCTYPE html>
@@ -26,18 +30,42 @@
     <div class="auth-form">
       <img src="assets/images/Logo-Pesbuk.png" alt="Logo Pesbuk" class="logo-pesbuk">
       <h1 class="auth-title">Login</h1>
-      <form action="#">
+      <form method="POST">
         <label for="user" class="auth-label">Email atau Nomor HP</label>
         <input type="text" name="user" id="user" class="auth-input">
         <label for="pass" class="auth-label">Password</label>
         <input type="password" name="pass" id="pass" class="auth-input">
         <i id="showPassToggle" class="fas fa-eye-slash" onclick="showPass()"></i>
-        <button class="btn-login">Login</button>
+        <button class="btn-login" name="login">Login</button>
       </form>
       <div class="links">
         <a href="register.php" class="auth-link">Buat akun baru</a>
         <a href="forget-password.php" class="auth-link">Lupa Password?</a>
       </div>
+
+      <?php
+        if(isset($_POST['login'])){
+          $user = $_POST['user'];
+          $pass = $_POST['pass'];
+
+          $cari = $koneksi->query("SELECT * FROM akun_pengguna WHERE email = '$user' OR phone = '$user'");
+          
+          if($cari->num_rows == 1){
+            $hasil = $cari->fetch_assoc();
+            if(password_verify($pass, $hasil['password'])){
+              $_SESSION['login'] = $hasil;
+              echo "<script>alert('Login berhasil!')</script>";
+              header("Location: index.php");
+            } else {
+              echo "<script>alert('Login gagal!')</script>";
+            }
+          } else {
+            echo "<script>alert('Login gagal!')</script>";
+          }
+        }
+      
+      
+      ?>
     </div>
   </div>
   <script>

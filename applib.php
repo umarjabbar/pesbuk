@@ -1,5 +1,5 @@
 <?php
-// Koneksi ke database 
+// Koneksi ke database
 $koneksi = new Mysqli("localhost", "root", "", "pesbuk");
 
 // Links

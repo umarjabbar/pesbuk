@@ -1,7 +1,9 @@
 <?php
+  session_start();
   include "applib.php";
-
-
+  if(!isset($_SESSION['login'])){
+    header("Location: login.php");
+  }
 ?>
 
 <!DOCTYPE html>
@@ -37,6 +39,8 @@
       elseif (isset($_GET['fullpage'])){
         if (links("fullpage", "post-detail")) {
           include "post_detail.php";
+        } elseif (links("fullpage", "logout")) {
+          include "logout.php";
         }
       }
       else 

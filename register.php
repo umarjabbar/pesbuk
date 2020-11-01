@@ -1,5 +1,9 @@
 <?php
+  session_start();
   include "applib.php";
+  if(isset($_SESSION['login'])){
+    header("Location: index.php");
+  }
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +30,7 @@
     <div class="auth-form">
       <img src="assets/images/Logo-Pesbuk.png" alt="Logo Pesbuk" class="logo-pesbuk">
       <h1 class="auth-title">Register</h1>
-      <form action="#">
+      <form method="POST">
         <label for="name" class="auth-label">Name</label>
         <input type="text" name="name" id="name" class="auth-input">
 
@@ -52,13 +56,34 @@
         <input type="password" name="pass" id="pass" class="auth-input">
         <i id="showPassToggle" class="fas fa-eye-slash" onclick="showPass()"></i> 
 
-        <button class="btn-login">Login</button>
+        <button class="btn-login" name="register">register</button>
       </form>
       <div class="links">
         <a href="login.php" class="auth-link">Sudah punya akun</a>
       </div>
     </div>
   </div>
+  
+  <?php
+    if(isset($_POST['register'])) {
+      $name = $_POST['name'];
+      $email = $_POST['email'];
+      $phone = $_POST['phone'];
+      $lahir = $_POST['lahir'];
+      $kelamin = $_POST['kelamin'];
+      $pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
+
+      $koneksi->query("INSERT INTO akun_pengguna (username, email, phone, password, jenis_kelamin, tanggal_lahir) VALUES ('$name', '$email', '$phone', '$pass', '$kelamin', '$lahir')");
+      
+      echo "<script>alert('Login Berhasil!')</script>";
+    }
+
+
+  
+  
+  ?>
+
+
   <script>
     function showPass() {
     let pass = document.getElementById("pass");
